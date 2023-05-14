@@ -77,7 +77,7 @@ const UserPage: NextPage<UserPageProps> = ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const context: ApiContext = {
-    apiRootUrl: process.env.API_BASE_URL || 'http://localhost:5000',
+    apiRootUrl: process.env.API_BASE_URL || 'http://localhost:8000',
   }
   const users = await getAllUsers(context)
   const paths = users.map((u) => `/users/${u.id}`)
@@ -87,7 +87,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const context: ApiContext = {
-    apiRootUrl: process.env.API_BASE_URL || 'http://localhost:5000',
+    apiRootUrl: process.env.API_BASE_URL || 'http://localhost:8000',
   }
 
   if (!params) {
